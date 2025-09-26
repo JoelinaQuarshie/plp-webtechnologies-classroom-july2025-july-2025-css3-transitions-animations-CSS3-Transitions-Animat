@@ -1,0 +1,40 @@
+// === Part 2: JavaScript Functions with Scope, Parameters, Return Values ===
+
+// Global state
+let boxVisible = true;
+
+/**
+ * Toggles visibility of the box using class manipulation.
+ * Demonstrates use of global variable, scope, and return values.
+ */
+function toggleBox() {
+  const box = document.getElementById("animatedBox");
+  boxVisible = !boxVisible;
+  if (boxVisible) {
+    box.classList.remove("hidden");
+  } else {
+    box.classList.add("hidden");
+  }
+  return boxVisible;
+}
+
+/**
+ * Flips the card by toggling a class.
+ * Shows function reuse and DOM animation triggering.
+ */
+function flipCard() {
+  const card = document.getElementById("card");
+  card.classList.toggle("flipped");
+}
+
+/**
+ * A helper function that calculates animation duration
+ * based on element size (demo: not used, but shows param + return)
+ */
+function getAnimationDuration(width) {
+  if (width > 300) return "2s";
+  return "1s";
+}
+
+// Example usage in future: dynamically set animation speed
+// const duration = getAnimationDuration(document.querySelector('.box').offsetWidth);

@@ -1,0 +1,107 @@
+/* === Part 1: CSS Transitions and Animations === */
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 2rem;
+  background: #f0f0f0;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+.fancy-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.4s, transform 0.2s;
+}
+
+.fancy-button:hover {
+  background: #2ecc71;
+  transform: scale(1.1);
+}
+
+/* Smooth slide-in animation on load */
+.box {
+  width: 200px;
+  height: 100px;
+  background: coral;
+  margin: 2rem auto;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideFadeIn 2s ease-out;
+  border-radius: 10px;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hidden state */
+.box.hidden {
+  animation: slideOut 1s forwards;
+}
+
+@keyframes slideOut {
+  to {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
+/* === Part 3: Card Flip === */
+.card {
+  width: 200px;
+  height: 120px;
+  margin: 2rem auto;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.card-front {
+  background: #3498db;
+}
+
+.card-back {
+  background: #e74c3c;
+  transform: rotateY(180deg);
+}
